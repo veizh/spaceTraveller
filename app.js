@@ -1,6 +1,6 @@
 import { Game } from "./game.js";
 let initGame;
-let server =" https://space-traveller-back-b9mr.vercel.app/player"
+let server ="https://space-traveller-back-b9mr.vercel.app/player"
 function animate(game) {
   game.update();
   if (game.isGameOver) {
