@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="app.js" defer></script>
+</head>
+<body>
+
+    <div class="game__container">
+        <div class="stars__container">
+            <div class="stars"></div>
+            </div>
+            
+            <div class="menu">
+                <img src="./assets/backgrounds/title.png" alt="Space Traveller">
+                <div class="start__game">Jouer</div>
+                <div class="check__classement">Classement</div>
+
+            </div>
+<div class="container__score">
+            <div class="score"></div>
+            <div class="life"></div>
+        </div>
+        
+        <canvas id="canvas"></canvas>
+    </div>
+    <div class="gameover">
+        <p>Votre score est de: <div class="displayScore"></div></p>
+        <input type="text" class="input__pseudo" placeholder="John Doe..." />
+        <div class="errInput"></div>
+        <div class="save">Sauvegarder</div>
+        <div class="menuBtn">Menu</div>
+    </div>
+    <div class="classement"></div>
+    <div class="bonus__modal"></div>
+</body>
+</html>

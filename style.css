@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+*{
+    font-family: "Lato", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.menu{
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    font-weight: 800;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+.check__classement{
+    background-color:#ecdb3a;
+    width: 200px;
+    text-align: center;
+        padding: 10px 30px;
+        color: rgb(19, 19, 19);
+        font-weight: 800;
+        transition: 0.22s ease-in-out all;
+        z-index: 2;
+        cursor: pointer;
+}
+.ClassementRow{
+    display: flex;
+    gap: 5px;
+}
+.name{
+    width: 160px;
+}
+.classement{
+    padding: 40px;
+    z-index: 4;
+    display: none;
+    position: fixed;
+    gap: 5px;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.308);
+    width: 400px;
+    color: whitesmoke;
+
+}
+.displayScore{
+    color: #ecdb3a;
+    font-weight: 800;
+    margin-top: -10px;
+}
+.start__game{
+    background-color:#ecdb3a;
+    width: 200px;
+    text-align: center;
+        padding: 10px 30px;
+        color: rgb(19, 19, 19);
+        transition: 0.22s ease-in-out all;
+        z-index: 2;
+        cursor: pointer;
+}
+.game__container{
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-image:url("./assets/backgrounds/black.png");
+}
+@keyframes slideDown{
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(100vh);
+
+    }
+}
+.stars__container{
+    position: absolute;
+    display: flex;
+    top: -100vh;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-image:url("./assets/backgrounds/stars.png");
+}
+.bonus__modal{
+    display: block;
+    opacity: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color:white ;
+    font-size: 80px;
+    text-transform: uppercase;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+.stars{
+    animation: slideDown 15s linear infinite;
+    background-image:url("./assets/backgrounds/stars.png");
+    width: 100vw;
+    height: 100vh;
+}
+.stars::before{
+    content: "";
+    display: block;
+    transform: translateY(100vh);
+    background-image:url("./assets/backgrounds/stars.png");
+    width: 100vw;
+    height: 100vh;
+}
+.container__score{
+    display: none;
+    position: absolute;
+    padding: 10px 40px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: whitesmoke;
+    flex-direction: row;
+    gap: 30px;
+}
+.errInput{
+    width: 200px;
+    text-align: center;
+    color: red;
+}
+#canvas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.classement{
+    text-transform: uppercase;
+}
+.gameover{
+    display: none;
+    z-index: 5;
+flex-direction: column;
+color: whitesmoke;
+position: fixed;
+align-items: center;
+gap: 15px;
+justify-content: center;
+background-color: rgba(0, 0, 0, 0.486);
+width: 100vw;
+height: 100vh;
+top: 0;
+}
+.share__score{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+ input{
+    all: unset;
+    color: #ecdb3a;
+    width: 180px;
+    padding: 10px 10px;
+    border-top: 2px solid #ecdb3a ;
+    border-bottom: 2px solid #ecdb3a ;
+    text-transform: uppercase;
+}
+.title{
+    font-size: 18px;
+    color: #ecdb3a;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+.menu img{
+   margin-top: 280px;
+   transform: scale(1.2);
+   margin-bottom: 70px;
+}
+.gameover .save{
+    background-color:#ecdb3a;
+    width: 200px;
+    text-align: center;
+        padding: 10px 30px;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: black;
+        transition: 0.22s ease-in-out all;
+        z-index: 2;
+        cursor: pointer;
+}
+
+.gameover button:hover{
+    outline: none;
+}
+.menuBtn{
+    width: 200px;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+    padding: 10px 30px;
+    border:2px solid #ecdb3a;
+    color: #ecdb3a;
+    transition: 0.22s ease-in-out all;
+    z-index: 2;
+    cursor: pointer;
+}
