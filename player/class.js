@@ -180,11 +180,11 @@ export class Player extends Entity {
   }
   getSuperGun(){
     this.superGunIsActive=true
-    modalText("unlimited ammo.q for 7s")
+    modalText("TIR RAPIDE")
         
     setTimeout(()=>{
         this.superGunIsActive=false
-        modalText("bonus ended")
+        modalText("FIN DU BONUS")
     },7000)
   }
   shoot(e) {

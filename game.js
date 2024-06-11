@@ -138,7 +138,7 @@ export class Game {
                             
                             
                         
-                        modalText("un peu de répit")
+                        modalText("NUKE")
                         break;
                     default:
                         break;
