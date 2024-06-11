@@ -65,10 +65,7 @@ document.querySelector(".start__game").addEventListener("click", () => {
 });
 async function fetchClassement() {
   let tmp = await fetch(server+"/classement",
-    {method: "GET",headers: {
-      Accept: "*/*",
-      "Content-Type": "application/json",
-    },},
+    {method: "GET"},
   ).then((res) =>
     res.json()
   );
@@ -101,10 +98,9 @@ async function addScoreToBdd(pseudo, score) {
     score: score,
   };
   fetch(server+"/pushOne", {
-    method: "post",
+    method: "POST",
     headers:{
-      "Content-Type": "application/json",
-      "accept":"*/*"
+      "Content-Type": "application/json"
     },
     body: JSON.stringify(tmp),
   });
