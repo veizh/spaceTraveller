@@ -1,5 +1,6 @@
 import { Game } from "./game.js";
 let initGame;
+let server =" https://space-traveller-back-b9mr.vercel.app/player"
 function animate(game) {
   game.update();
   if (game.isGameOver) {
@@ -63,7 +64,7 @@ document.querySelector(".start__game").addEventListener("click", () => {
   initGame = startGame();
 });
 async function fetchClassement() {
-  let tmp = await fetch("http://localhost:3306/player/classement").then((res) =>
+  let tmp = await fetch(server+"/classement").then((res) =>
     res.json()
   );
   return tmp;
@@ -94,7 +95,7 @@ async function addScoreToBdd(pseudo, score) {
     pseudo: pseudo,
     score: score,
   };
-  fetch("http://localhost:3306/player/pushOne", {
+  fetch(server+"/pushOne", {
     method: "post",
     headers:{"Content-Type": "application/json","accept":"*/*"},
     body: JSON.stringify(tmp),
