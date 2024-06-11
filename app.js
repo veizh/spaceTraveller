@@ -104,8 +104,7 @@ async function addScoreToBdd(pseudo, score) {
     method: "post",
     headers:{
       "Content-Type": "application/json",
-      "accept":"*/*",
-      "Access-Control-Allow-Origin":"*/*"
+      "accept":"*/*"
     },
     body: JSON.stringify(tmp),
   });
