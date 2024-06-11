@@ -66,7 +66,7 @@ document.querySelector(".start__game").addEventListener("click", () => {
 async function fetchClassement() {
   let tmp = await fetch(server+"/classement", {headers:{
     "Content-Type": "application/json",
-    "accept":"/*/"}}
+    "accept":"*/*"}}
   ).then((res) =>
     res.json()
   );
