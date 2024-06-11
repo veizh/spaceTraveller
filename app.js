@@ -64,7 +64,11 @@ document.querySelector(".start__game").addEventListener("click", () => {
   initGame = startGame();
 });
 async function fetchClassement() {
-  let tmp = await fetch(server+"/classement"
+  let tmp = await fetch(server+"/classement",
+    {method: "GET",headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    },},
   ).then((res) =>
     res.json()
   );
