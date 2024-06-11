@@ -66,7 +66,7 @@ document.querySelector(".start__game").addEventListener("click", () => {
 async function fetchClassement() {
   let tmp = await fetch(server+"/classement", {headers:{
     "Content-Type": "application/json",
-    "accept":"*/*",
+    "accept":"*",
     "Access-Control-Allow-Origin":"*"}}
   ).then((res) =>
     res.json()
@@ -103,7 +103,7 @@ async function addScoreToBdd(pseudo, score) {
     method: "post",
     headers:{
       "Content-Type": "application/json",
-      "accept":"*/*",
+      "accept":"*",
       "Access-Control-Allow-Origin":"*"
     },
     body: JSON.stringify(tmp),
