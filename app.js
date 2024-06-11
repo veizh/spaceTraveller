@@ -64,9 +64,7 @@ document.querySelector(".start__game").addEventListener("click", () => {
   initGame = startGame();
 });
 async function fetchClassement() {
-  let tmp = await fetch(server+"/classement", {headers:{
-    "Content-Type": "application/json",
-    "accept":"*/*"}}
+  let tmp = await fetch(server+"/classement"
   ).then((res) =>
     res.json()
   );
@@ -102,8 +100,8 @@ async function addScoreToBdd(pseudo, score) {
     method: "post",
     headers:{
       "Content-Type": "application/json",
-      "accept":"*",
-      "Access-Control-Allow-Origin":"*"
+      "accept":"*/*",
+      "Access-Control-Allow-Origin":"*/*"
     },
     body: JSON.stringify(tmp),
   });
