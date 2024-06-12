@@ -4,8 +4,7 @@ let serverLocal ="http://localhost:3306/player"
 let serverOnline = "https://space-traveller-back.vercel.app/player"
 let server =serverOnline
 let musicBg = new Audio('/assets/sonore/song.mp3')
-musicBg.play()
-musicBg.volume=0.05
+
 function animate(game) {
   game.update();
   if (game.isGameOver) {
@@ -65,6 +64,8 @@ document
   });
 document.querySelector(".start__game").addEventListener("click", () => {
   document.querySelector(".menu").style.display = "none";
+  musicBg.play()
+musicBg.volume=0.05
   document.querySelector(".classement").style.display = "none";
   initGame = startGame();
 });
