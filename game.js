@@ -88,7 +88,8 @@ export class Game {
         if(sounds){
             
         const explosionSound2 = new Audio('../assets/sonore/explosion2.mp3');
-        explosionSound2.currentTime = 0.15;
+        explosionSound2.currentTime = 0.25;
+        explosionSound2.volume = 0.25;
         explosionSound2.play()
 
         }
@@ -104,7 +105,8 @@ export class Game {
             if (this.isColliding(this.player, asteroid)) {
                 console.log('Collision detected on asteroid '+i);
                 this.asteroids.splice(i, 1);
-                this.player.life-=1
+                if(!this.player.isInvincible)this.player.life-=1
+                this.player.getHit()
                 if(this.player.life<=0){
                     this.isGameOver=true
                     this.ctx.clearRect(0,0,window.innerWidth,window.innerHeight)
@@ -123,9 +125,15 @@ export class Game {
                 console.log('Item collected!');
                 switch (item.name) {
                     case "superGun":
+                        let pickupSound1 = new Audio("../assets/sonore/pickup.mp3")
+                        pickupSound1.play()
+                        pickupSound1.volume=0.6
                         this.player.getSuperGun()
                         break;
                     case "pill":
+                        let pickupSound = new Audio("../assets/sonore/pickup.mp3")
+                        pickupSound.play()
+                        pickupSound.volume=0.6
                         this.player.life+=1
                         modalText("+1 life")
                         break;
@@ -167,10 +175,10 @@ export class Game {
 
     isColliding(entityA, entityB) {
         return (
-            entityA.x < entityB.x + entityB.width*0.9 &&
-            entityA.x + entityA.width*0.9 > entityB.x &&
-            entityA.y < entityB.y + entityB.height*0.9 &&
-            entityA.y + entityA.height*0.9 > entityB.y
+            entityA.x < entityB.x + entityB.width*0.8 &&
+            entityA.x + entityA.width*0.8 > entityB.x &&
+            entityA.y < entityB.y + entityB.height*0.8 &&
+            entityA.y + entityA.height*0.8 > entityB.y
         );
     }
     restart() {

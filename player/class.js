@@ -39,6 +39,7 @@ export class Player extends Entity {
     this.bullets = []; // Tableau pour stocker les balles
     this.init();
     this.isReloading = false;
+    this.isInvincible = false
   }
   update(ctx) {
     this.updateDirection();
@@ -143,7 +144,31 @@ export class Player extends Entity {
       this.vY = 0;
     }
   }
+  getHit(){
+    let hitSound = new Audio('../assets/sonore/hit.mp3')
+    hitSound.volume=0.40
+    hitSound.play()
+    hitSound.currentTime=0.25
+    this.isInvincible=true
+    setTimeout(() => {
+    this.isInvincible=false
+      
+    }, 1000);
+    for (let index = 1; index < 9; index++) {
+      
+      setTimeout(() => {
+        if(index%2===0){
+          
+          this.img.src='../assets/player/ship.png'
+          }
+          else{
 
+            this.img.src='../assets/player/shipHit.png'
+          }
+      }, index*100);
+      
+    }
+  }
   updatePosition() {
     this.x += this.vX * 8;
     this.y += this.vY * 8;
@@ -180,7 +205,7 @@ export class Player extends Entity {
   }
   getSuperGun(){
     this.superGunIsActive=true
-    modalText("TIR RAPIDE")
+    modalText("MEGA GUN")
         
     setTimeout(()=>{
         this.superGunIsActive=false
@@ -190,19 +215,28 @@ export class Player extends Entity {
   shoot(e) {
       if (e.key !== " " || this.isReloading) return;
       let laserSound = new Audio("../assets/sonore/laser.mp3")
-      laserSound.volume=0.3
+      laserSound.volume=0.2
       laserSound.currentTime=0
       laserSound.play()
     if(this.superGunIsActive){
       const bulletWidth = 5;
       const bullet = new Bullet(
-        this.x + this.width / 2 - 10,
+        this.x + this.width / 2 +5,
         this.y - 22,
         10,
         80,
         20
         
       );
+      const bullet1 = new Bullet(
+        this.x + this.width / 2 - 25,
+        this.y - 22,
+        10,
+        80,
+        20
+        
+      );
+      this.bullets.push(bullet1);
       this.bullets.push(bullet);
 
       return

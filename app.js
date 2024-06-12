@@ -3,6 +3,9 @@ let initGame;
 let serverLocal ="http://localhost:3306/player"
 let serverOnline = "https://space-traveller-back.vercel.app/player"
 let server =serverOnline
+let musicBg = new Audio('/assets/sonore/song.mp3')
+musicBg.play()
+musicBg.volume=0.05
 function animate(game) {
   game.update();
   if (game.isGameOver) {
@@ -53,10 +56,10 @@ document
     let data = await fetchClassement();
     document.querySelector(".classement").innerHTML=""
     let p  = document.createElement('p')
-    p.innerHTML=`Classement de ${data.scores.length} joueurs :`
+    p.innerHTML=`Classement de ${data.length&&data.length} joueurs :`
     p.classList.add('title')
     document.querySelector('.classement').appendChild(p)
-    data.scores.forEach((element) => {
+    data.forEach((element) => {
       createPlayerRow(element.pseudo, element.score);
     });
   });
@@ -77,6 +80,16 @@ async function fetchClassement() {
   ).then((res) =>
     res.json()
   );
+  console.log('====================================');
+  console.log(tmp);
+  console.log('====================================');
+  function sortDescending(arr) {
+    return arr.sort((a, b) => b.score - a.score );
+}
+tmp = sortDescending(tmp.scores)
+console.log('====================================');
+console.log(tmp);
+console.log('====================================');
   return tmp;
 }
 function verifyInput() {

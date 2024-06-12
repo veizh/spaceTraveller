@@ -17,7 +17,7 @@
     width: 100vw;
     height: 100vh;
 }
-.check__classement{
+.check__classement,.toggle_sound{
     background-color:#ecdb3a;
     width: 200px;
     text-align: center;
